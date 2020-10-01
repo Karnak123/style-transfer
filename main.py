@@ -1,7 +1,7 @@
 """main program to perform style transfer"""
 
-import argparse
 # imports
+import argparse
 import os
 
 import tensorflow as tf
