@@ -7,6 +7,7 @@ import os
 import tensorflow as tf
 
 import util
+from tqdm import tqdm
 
 # setup environment
 os.environ["TF_ENABLE_AUTO_MIXED_PRECISION"] = "1"
@@ -142,9 +143,8 @@ def train_step(image):
 
 
 # training loop
-for n in range(epochs):
-    for m in range(STEPS_PER_EPOCH):
-        train_step(image)
+for _ in tqdm(range(epochs*STEPS_PER_EPOCH)):
+    train_step(image)
 
 # save file to disk
 FILE_NAME = "stylized-image.png"
